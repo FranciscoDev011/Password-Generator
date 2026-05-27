@@ -12,13 +12,13 @@
         <h2>Password Generator</h2>
 
         <div class="password-container">
-            <p id="password"></p>
-            <i class="fa-regular fa-copy"></i>
+            <input type="text" readonly id="password" value="">
+            <i class="fa-regular fa-copy" id="copy" title="Copiar"></i>
         </div>
         <div class="options-container">
             <div class="options">
                 <label for="password-length">Tamanho da Senha</label>
-                <input type="range" name="password-length" id="password-length">
+                <input type="range" min="1" max="20" value="10" name="password-length" id="password-length">
                 <p id="length-info">10</p>
             </div>
             <div class="options">
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <button id="gerate-password"> <i class="fa-solid fa-key"></i> Gerar Senha</button>
+            <button id="gerate-password"><i class="fa-solid fa-key"></i> Gerar Senha</button>
 
             <div class="strength-container">
                 <p>Segurança da Senha: <span id="strength-label">Média</span></p>

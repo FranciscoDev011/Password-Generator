@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
 
+:root {
+    /*Colors Web*/
+    --color1: #253441;
+    --color2: #5D82A2;
+    --color3: #7D9BB5;
+    --color4: #9EB4C7;
+    --color5: #D9E1E8;
+    --color6: #DFE6EC;
+
+    /*Password Meter Color*/
+    --color-weak: #ef233c;
+    --color-medium: #e85d04;
+    --color-strenght: #25a244;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -16,11 +31,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #253441;
+    color: var(--color1);
 }
 
 .container {
-    background-color: #DFE6EC;
+    background-color: var(--color6);
     padding: 2.5rem;
     border-radius: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -33,20 +48,53 @@ body {
 
 h2 {
     font-size: 2.5rem;
-    border-bottom: 5px solid #9EB4C7;
+    border-bottom: 5px solid var(--color4);
     
 }
 
 .password-container {
     margin: 15px 0;
-    background-color: #bfcbd5;
-    padding: 1rem 10.2rem;
+    background-color: var(--color5);
     border-radius: 6px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem 0 1rem;
+}
+
+#password{
+    width: 100%;
+    padding: 1rem 3.2rem;
+    background: transparent;
+    border: none;
+    color: #253441;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    
+}
+
+#copy {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#copy:hover{
+    background-color: var(--color3);
 }
 
 .options-container {
-    background-color: #bfcbd5;
-    padding: 0.75rem 0.75rem;
+    background-color: var(--color5);
+    padding: 0.75rem 0.80rem;
+    width: 22.5rem;
     border-radius: 6px;
 
     display: flex;
@@ -74,13 +122,13 @@ input[type=checkbox] {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    border: 2px solid #253441;
+    border: 2px solid var(--color1);
     border-radius: 4px;
-    background-color: #9EB4C7;
+    background-color: var(--color4);
 }
 
 input[type=checkbox]:checked {
-    background-color: #253441;
+    background-color: var(--color1);
 }
 
 .checkmark {
@@ -105,3 +153,80 @@ input[type=checkbox]:checked + .checkmark svg {
     display: block;
 }
 
+input[type=range] {
+    margin-top: 9px;
+    appearance: none;
+    background-color: var(--color3);
+    border-radius: 8px;
+    width: 7rem;
+    height: 0.40rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color1);
+    border-radius: 50%;
+}
+
+#length-info {
+    margin-right: 2px;
+    min-width: 20px;
+    text-align: center;
+}
+
+#gerate-password {
+    height: 2.5rem;
+    border-radius: 8px;
+    border-style: none;
+    background-image: linear-gradient(45deg, #253441, #253441f4);
+    color: #bfcbd5;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#gerate-password:hover {
+    transform: translateY(-2px);
+}
+
+#gerate-password:active {
+    transform: translateY(0px);
+}
+
+.strength-container {
+    margin-top: 0.3rem;
+}
+
+.strength-container p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#strength-label {
+    font-weight: 600;
+}
+
+.strength-meter {
+    height: 10px;
+    background-color: var(--color4);
+    overflow: hidden;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    min-width: 5%;
+    background-color: var(--color-weak);
+    border-radius: 5px;
+}
