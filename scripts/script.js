@@ -1,5 +1,4 @@
 // Data
-
 const password_input = document.getElementById('password');
 const copy_clipboard = document.getElementById('copy');
 
@@ -20,7 +19,7 @@ const lowercase_letters = "abcdefghijklmnopqrstuvwxyz";
 const number_characters = "0123456789";
 const symbols_characters = "!@#$%&*()-_=+[]{}|;:.,<>?";
 
-// Input Rage
+// Atualizar o texto do range input
 function updateValue() {
     range_value.textContent = range_slider.value;
 }
@@ -33,12 +32,14 @@ range_slider.addEventListener('input', updateValue);
 button_password.addEventListener('click', generatePassword)
 
 function generatePassword() {
+    // Checagem das opções, puxando o tamanho do range_slider e se as variaveis estão ativadas ou não
     const characters_length = Number(range_slider.value);
     const addUppercase = option_uppercase.checked;
     const addLowercase = option_lowercase.checked;
     const addNumber = option_number.checked;
     const addSymbols = option_symbol.checked;
 
+    // Variavel que irá armazenar todo o conjunto de caracteres 
     let allCharacters = '';
     let warning = document.getElementById('text');
 
@@ -100,8 +101,7 @@ function updateStrengthMeter(password) {
 }
 
 copy_clipboard.addEventListener('click', () => {
-    if (password_input.value == false) {return}
+    if (!password_input.value) {return}
 
-    navigator.clipboard
-    .writeText(password_input.value)
+    navigator.clipboard.writeText(password_input.value);
 })
